@@ -1,8 +1,19 @@
 version: '3.4'
 
 services:
+  catalogdb:
+    container_name: catalogdb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
   catalog.api:
+    container_name: catalog.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=mongodb://127.0.0.1:27017/?serverSelectionTimeoutMS=50000&appName=mongosh+1.6.1&connect=replicaSet"
+    depends_on:
+      - catalogdb
     ports:
-      - "80"
+      - "8000:80"
