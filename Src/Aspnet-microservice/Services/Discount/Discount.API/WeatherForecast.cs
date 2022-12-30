@@ -1,6 +1,6 @@
 using System;
 
-namespace Discount.Api
+namespace Discount.API
 {
     public class WeatherForecast
     {
