@@ -9,6 +9,8 @@ services:
     image: postgres
   pgadmin:
     image: dpage/pgadmin4
+  orderdb:
+    image: mcr.microsoft.com/mssql/server:2017-latest
   portainer:
     image: portainer/portainer-ce
   catalog.api:
